@@ -1,0 +1,44 @@
+#wheel {
+	margin: 50px 0 0 50px;
+	width: 500px;
+	height: 500px;
+}
+
+ul {
+	margin-left: 250px;
+}
+
+li {
+	border: 1px solid black;
+	width: 20px;
+	height: 20px;
+	border-radius: 20px;
+	text-align: center;
+	position: absolute;
+}
+
+#two {margin: 46px 0 0 46px;}
+#three {margin: 92px 0 0 92px;}
+#four {margin: 138px 0 0 138px;}
+#five {margin: 184px 0 0 184px;}
+
+#six {margin: 230px 0 0 230px;}
+
+#eight {margin: 276px 0 0 184px;}
+#nine {margin: 322px 0 0 138px;}
+#ten {margin: 368px 0 0 92px;}
+#eleven {margin: 414px 0 0 46px;}
+
+#twelve {margin-top: 460px;}
+
+#thirteen {margin: 276px 0 0 -184px;}
+#fourteen {margin: 322px 0 0 -138px;}
+#fifteen {margin: 368px 0 0 -92px;}
+#sixteen {margin: 414px 0 0 -46px;}
+
+#seventeen {margin: 230px 0 0 -230px;}
+
+#nineteen {margin: 46px 0 0 -46px;}
+#twenty {margin: 92px 0 0 -92px;}
+#twentyone {margin: 138px 0 0 -138px;}
+#twentytwo {margin: 184px 0 0 -184px;}
