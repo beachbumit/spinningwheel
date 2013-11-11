@@ -8,40 +8,22 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var game = new wheelGame();
-			var list = $('#circles').children();
-			var i=0;
-			var score = [];
-			var total = 0;
+		
 			$('#start').click(function() {
+				game.startGame();
 				$(this).attr('disabled', true);
 				$('#stop').attr('disabled', false);
-				stop = setInterval(function() {
-					$(list[i]).css('color', 'black').css('border', '2px solid black').attr('data-win', 'none');
-					setTimeout(function() {
-						$(list[i]).css('color', 'red').css('border', '2px solid red').css('font-weight', 'bold').attr('data-win', 'win');
-					}, 5);
-					i++;
-					if (i == list.length) {
-						i = 0;
-					}
-				}, 40);
 			});
 
 			$('#stop').click(function() {
+				game.stopGame();
 				$('#start').attr('disabled', false);
 				$(this).attr('disabled', true);
-				clearInterval(stop);
-				score.push($('#circles').find("li[data-win=win]").attr('data-score'));
-				for(var i=0; i<score.length; i+=1) {
-					total += parseInt(score[i]);
-				}
-				$('#score').text(total);
-				if(score.length == 5) {
-					alert('your grand total is '+total);
-					score = [];
+				$('#score').text(game.getScore());
+				if(game.checkTries()) {
+					alert('your grand total is '+game.checkTries());
 					$('#score').text('0');
 				}
-				total=0;
 			});
 		});
 	</script>
