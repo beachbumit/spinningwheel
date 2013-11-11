@@ -14,10 +14,9 @@
 				$(this).attr('disabled', true);
 				$('#stop').attr('disabled', false);
 				stop = setInterval(function() {
-					list[i].style.color = 'black';
-					list[i].style.border = '2px solid black';
+					$(list[i]).css('color', 'black').css('border', '2px solid black').attr('data-win', 'none');
 					setTimeout(function() {
-						$(list[i]).css('color', 'red').css('border', '2px solid red').css('font-weight', 'bold');
+						$(list[i]).css('color', 'red').css('border', '2px solid red').css('font-weight', 'bold').attr('data-win', 'win');
 					}, 10);
 					i++;
 					if (i == list.length) {
@@ -28,22 +27,10 @@
 
 			$('#stop').click(function() {
 				$('#start').attr('disabled', false);
+				$(this).attr('disabled', true);
 				clearInterval(stop);
+				console.log($('#circles').find("li[data-win=win]").attr('data-score'));
 			});
-			
-
-			// for(var i=0; i<list.length; i += 1) {
-			// 	(function(i) {
-			// 		setTimeout(function() {
-			// 			list[i].style.color = 'red';
-			// 			list[i].style.border = '1px solid red';
-			// 			setTimeout(function() {
-			// 				list[i].style.color = 'black';
-			// 				list[i].style.border = '1px solid black';
-			// 			}, 300)
-			// 		}, 60 * i);
-			// 	})(i);
-			// }
 		});
 	</script>
 </head>
@@ -74,6 +61,8 @@
 		</ul>
 		<button id='start'>Start!</button>
 		<button id='stop' disabled='true'>Stop!</button>
+	</div>
+	<div id='score'>
 	</div>
 </body>
 </html>
