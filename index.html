@@ -9,18 +9,41 @@
 		$(document).ready(function() {
 			var game = new wheelGame();
 			var list = $('#circles').children();
-			for(var i=0; i<list.length; i += 1) {
-				(function(i) {
+			var i=0;
+			$('#start').click(function() {
+				$(this).attr('disabled', true);
+				$('#stop').attr('disabled', false);
+				stop = setInterval(function() {
+					list[i].style.color = 'black';
+					list[i].style.border = '2px solid black';
 					setTimeout(function() {
-						list[i].style.color = 'red';
-						list[i].style.border = '1px solid red';
-						setTimeout(function() {
-							list[i].style.color = 'black';
-							list[i].style.border = '1px solid black';
-						}, 300)
-					}, 60 * i);
-				})(i);
-			}
+						$(list[i]).css('color', 'red').css('border', '2px solid red').css('font-weight', 'bold');
+					}, 10);
+					i++;
+					if (i == list.length) {
+						i = 0;
+					}
+				}, 150);
+			});
+
+			$('#stop').click(function() {
+				$('#start').attr('disabled', false);
+				clearInterval(stop);
+			});
+			
+
+			// for(var i=0; i<list.length; i += 1) {
+			// 	(function(i) {
+			// 		setTimeout(function() {
+			// 			list[i].style.color = 'red';
+			// 			list[i].style.border = '1px solid red';
+			// 			setTimeout(function() {
+			// 				list[i].style.color = 'black';
+			// 				list[i].style.border = '1px solid black';
+			// 			}, 300)
+			// 		}, 60 * i);
+			// 	})(i);
+			// }
 		});
 	</script>
 </head>
@@ -50,7 +73,7 @@
 			<li id='twentytwo' data-score='1'>1</li>
 		</ul>
 		<button id='start'>Start!</button>
-		<button id='stop'>Stop!</button>
+		<button id='stop' disabled='true'>Stop!</button>
 	</div>
 </body>
 </html>
