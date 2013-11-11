@@ -17,28 +17,34 @@ li {
 	position: absolute;
 }
 
+#start {
+	position: absolute;
+	margin: 230px 0 0 180px;
+	font-size: 20px;
+}
+
+#stop {
+	position: absolute;
+	margin: 230px 0 0 280px;
+	font-size: 20px;
+}
+
 #two {margin: 46px 0 0 46px;}
 #three {margin: 92px 0 0 92px;}
 #four {margin: 138px 0 0 138px;}
 #five {margin: 184px 0 0 184px;}
-
 #six {margin: 230px 0 0 230px;}
-
 #eight {margin: 276px 0 0 184px;}
 #nine {margin: 322px 0 0 138px;}
 #ten {margin: 368px 0 0 92px;}
 #eleven {margin: 414px 0 0 46px;}
-
 #twelve {margin-top: 460px;}
-
-#thirteen {margin: 276px 0 0 -184px;}
-#fourteen {margin: 322px 0 0 -138px;}
-#fifteen {margin: 368px 0 0 -92px;}
-#sixteen {margin: 414px 0 0 -46px;}
-
+#thirteen {margin: 414px 0 0 -46px;} 
+#fourteen {margin: 368px 0 0 -92px;} 
+#fifteen {margin: 322px 0 0 -138px;} 
+#sixteen {margin: 276px 0 0 -184px;} 
 #seventeen {margin: 230px 0 0 -230px;}
-
-#nineteen {margin: 46px 0 0 -46px;}
-#twenty {margin: 92px 0 0 -92px;}
-#twentyone {margin: 138px 0 0 -138px;}
-#twentytwo {margin: 184px 0 0 -184px;}
+#nineteen {margin: 184px 0 0 -184px;} 
+#twenty {margin: 138px 0 0 -138px;} 
+#twentyone {margin: 92px 0 0 -92px;} 
+#twentytwo {margin: 46px 0 0 -46px;} 
