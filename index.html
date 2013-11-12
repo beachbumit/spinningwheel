@@ -9,15 +9,16 @@
 		$(document).ready(function() {
 			var game = new wheelGame();
 		
-			$('#start').click(function() {
-				game.startWheel();
-				$(this).attr('disabled', true);
+			$('.start').click(function() {
+				var difficulty = $(this).attr('id');
+				game.startWheel(difficulty);
+				$('.start').attr('disabled', true);
 				$('#stop').attr('disabled', false);
 			});
 
 			$('#stop').click(function() {
 				game.stopWheel();
-				$('#start').attr('disabled', false);
+				$('.start').attr('disabled', false);
 				$(this).attr('disabled', true);
 
 				// Make sure undefined numbers don't get added to score array
@@ -31,6 +32,8 @@
 				if(game.checkTries()) {
 					alert('your grand total is '+game.checkTries());
 					$('#score').text('0');
+
+					// Append score to history
 					var his = document.getElementById('history');
 					his.appendChild(game.appendScore());
 				}
@@ -63,7 +66,9 @@
 			<li id='twentyone' data-score='7'>7</li>
 			<li id='twentytwo' data-score='1'>1</li>
 		</ul>
-		<button id='start'>Start!</button>
+		<button id='easy' class='start'>Easy</button>
+		<button id='hard' class='start'>Hard</button>
+		<button id='insane' class='start'>Insane</button>
 		<button id='stop' disabled='true'>Stop!</button>
 	</div>
 	<div id='box'>

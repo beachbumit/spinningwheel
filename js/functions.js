@@ -4,8 +4,20 @@ function wheelGame() {
 	var score = [];
 	var total = 0;
 
-	this.startWheel = function() {
+	this.startWheel = function(difficulty) {
 		var list = $('#circles').children();
+		var time = 0;
+		switch (difficulty) {
+			case 'easy':
+				time = 25;
+				break;
+			case 'hard':
+				time = 15;
+				break;
+			case 'insane':
+				time = 9;
+				break;
+		}
 		stop = setInterval(function() {
 			list[i].className = 'black';
 			list[i].setAttribute('data-win', 'no');
@@ -21,7 +33,7 @@ function wheelGame() {
 			if (i == list.length) {
 				i = 0;
 			}
-		}, 30);
+		}, time);
 	}
 
 	this.stopWheel = function() {
@@ -64,6 +76,7 @@ function wheelGame() {
 		}
 	}
 
+	// Save score in histroy sidebar
 	this.appendScore = function() {
 		var p = document.createElement('p');
 		p.innerHTML = this.checkTries();
