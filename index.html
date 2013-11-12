@@ -10,16 +10,24 @@
 			var game = new wheelGame();
 		
 			$('#start').click(function() {
-				game.startGame();
+				game.startWheel();
 				$(this).attr('disabled', true);
 				$('#stop').attr('disabled', false);
 			});
 
 			$('#stop').click(function() {
-				game.stopGame();
+				game.stopWheel();
 				$('#start').attr('disabled', false);
 				$(this).attr('disabled', true);
-				$('#score').text(game.getScore());
+
+				// Make sure undefined numbers don't get added to score array
+				if (game.checkScore()) {
+					alert("Oops, didn't catch that last number!  Try again!");
+				} else {
+					$('#score').text(game.getScore());
+				}
+
+				// Check if 5th turn
 				if(game.checkTries()) {
 					alert('your grand total is '+game.checkTries());
 					$('#score').text('0');
