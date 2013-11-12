@@ -2,31 +2,33 @@ function wheelGame() {
 	var stop;
 	var i = 0;
 	var score = [];
-	var list = $('#circles').children();
-	this.total = 0;
+	var total = 0;
 
 	this.startWheel = function() {
+		var list = $('#circles').children();
 		stop = setInterval(function() {
-			$(list[i]).css('color', 'black').css('border', '2px solid black').attr('data-win', 'none');
+			list[i].className = 'black';
+			list[i].setAttribute('data-win', 'no');
 
 			// Change previous circle back to black
 			setTimeout(function() {
-				$(list[i]).css('color', 'red').css('border', '2px solid red').css('font-weight', 'bold').attr('data-win', 'win');
-			}, 5);
+				list[i].className = 'red';
+				list[i].setAttribute('data-win', 'win');
+			}, 1);
 			i++;
 
 			// Reset loop
 			if (i == list.length) {
 				i = 0;
 			}
-		}, 40);
+		}, 30);
 	}
 
 	this.stopWheel = function() {
 		clearInterval(stop);
 	}
 
-	// Take care of undefined number problem
+	// Take care of NaN problem
 	this.checkScore = function() {
 		if ($('#circles').find("li[data-win=win]").attr('data-score') == undefined) {
 			return true;
@@ -36,7 +38,7 @@ function wheelGame() {
 	}
 
 	this.getScore = function() {
-		this.total = 0;
+		total = 0; 
 		score.push($('#circles').find("li[data-win=win]").attr('data-score'));
 
 		// Check if past 5th turn
@@ -48,15 +50,15 @@ function wheelGame() {
 
 		// Add numbers in array and return total
 		for(var i=0; i<score.length; i+=1) {
-			this.total += parseInt(score[i]);
+			total += parseInt(score[i]); 
 		}
-		return this.total
+		return total 
 	}
 
 	// Check if 5th turn
 	this.checkTries = function() {
 		if(score.length == 5) {
-			return this.total;
+			return total; 
 		} else {
 			return false;
 		}
