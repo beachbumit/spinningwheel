@@ -31,13 +31,15 @@
 				if(game.checkTries()) {
 					alert('your grand total is '+game.checkTries());
 					$('#score').text('0');
+					var his = document.getElementById('history');
+					his.appendChild(game.appendScore());
 				}
 			});
 		});
 	</script>
 </head>
 <body>
-	<p>You have five attempts.  Highest score wins!</p>
+	<h1>You have five attempts to get the highest score possible!</h1>
 	<div id='wheel'>
 		<ul id='circles'>
 			<li id='one' data-score='10'>10</li>
@@ -67,6 +69,9 @@
 	<div id='box'>
 		<p id='total'>Your total:</p>
 		<p id='score'></p>
+	</div>
+	<div id='history'>
+		<p id='prevscores'>Previous Scores:</p>
 	</div>
 </body>
 </html>

@@ -64,4 +64,10 @@ function wheelGame() {
 		}
 	}
 
+	this.appendScore = function() {
+		var p = document.createElement('p');
+		p.innerHTML = this.checkTries();
+		return p;
+	}
+
 }
