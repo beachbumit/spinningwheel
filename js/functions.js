@@ -78,9 +78,10 @@ function wheelGame() {
 
 	// Save score in histroy sidebar
 	this.appendScore = function() {
+		var his = document.getElementById('history');
 		var p = document.createElement('p');
 		p.innerHTML = this.checkTries();
-		return p;
+		his.appendChild(p);
 	}
 
 }
